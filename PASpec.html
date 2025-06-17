@@ -87,7 +87,7 @@
       text-align: center;
       padding: 6px;
       font-size: 13px;
-      border-radius: 6px;
+      border-radius: 1px;
       cursor: grab;
       user-select: none;
       background-color: #fff;
@@ -95,12 +95,10 @@
       color: black;
     }
     .note.red {
-      background-color: #f8d7da;
-      border-color: #dc3545;
+      text-color: #dc3545
     }
     .note.blue {
-      background-color: #d1ecf1;
-      border-color: #0c5460;
+      text-color: #0c5460;
     }
     .notes-panel {
       margin-top: 40px;
@@ -217,7 +215,7 @@
       <h2>Drag Notes Below into Correct Boxes</h2>
       <div class="notes-grid">
         <div class="note" draggable="true">Panels have rough patches</div>
-        <div class="note" draggable="true">Some panels on some presses</div>
+        <div class="note.red" draggable="true">Some panels on some presses</div>
         <div class="note" draggable="true">All panels on all presses</div>
         <div class="note" draggable="true">More than 60 or less than 30 sq. mm.</div>
         <div class="note" draggable="true">Albatross Drone Panels A, B, C, D, F, G</div>
