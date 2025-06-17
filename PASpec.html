@@ -269,5 +269,76 @@
       </div>
     </div>
   </div>
+<script>
+// JS functions for drag and drop, adapted from Process Test Beta.html
+
+document.addEventListener('DOMContentLoaded', function() {
+  initializeDragAndDrop();
+});
+
+function initializeDragAndDrop() {
+  const notes = document.querySelectorAll('.note');
+  const boxes = document.querySelectorAll('.drop-box');
+  const notesArea = document.querySelector('.notes-grid');
+  attachDragEventsToNotes(notes);
+  attachDropEventsToBoxes(boxes, notesArea);
+  if (notesArea) {
+    attachDropEventsToNotesArea(notesArea);
+  }
+}
+
+function attachDragEventsToNotes(notes) {
+  notes.forEach(note => {
+    note.addEventListener('dragstart', function(e) {
+      this.classList.add('dragging');
+      e.dataTransfer.setData('text/plain', '');
+    });
+    note.addEventListener('dragend', function() {
+      this.classList.remove('dragging');
+      document.querySelectorAll('.drop-box.highlight').forEach(box => {
+        box.classList.remove('highlight');
+      });
+    });
+  });
+}
+
+function attachDropEventsToBoxes(boxes, notesArea) {
+  boxes.forEach(box => {
+    box.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      this.classList.add('highlight');
+    });
+    box.addEventListener('dragleave', function() {
+      this.classList.remove('highlight');
+    });
+    box.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('highlight');
+      const draggingNote = document.querySelector('.dragging');
+      if (draggingNote) {
+        if (this.querySelector('.note')) {
+          const existing = this.querySelector('.note');
+          notesArea.appendChild(existing);
+        }
+        this.appendChild(draggingNote);
+      }
+    });
+  });
+}
+
+function attachDropEventsToNotesArea(area) {
+  area.addEventListener('dragover', function(e) {
+    e.preventDefault();
+  });
+  area.addEventListener('drop', function(e) {
+    e.preventDefault();
+    const draggingNote = document.querySelector('.dragging');
+    if (draggingNote) {
+      area.appendChild(draggingNote);
+    }
+  });
+}
+
+</script>
 </body>
 </html>
