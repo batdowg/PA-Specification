@@ -87,6 +87,7 @@
       text-align: center;
       padding: 6px;
       font-size: 13px;
+      font-weight: bold;
       border-radius: 1px;
       cursor: grab;
       user-select: none;
@@ -95,17 +96,22 @@
       color: black;
     }
     .notes-panel {
-      margin-top: 40px;
+      position: fixed;
+      top: 20px;
+      left: 20px;
       padding: 20px;
       background: #f9f9f9;
       border: 2px dashed #ccc;
       border-radius: 10px;
+      cursor: move;
     }
     .notes-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
+    .note-red { color: red; }
+    .note-blue { color: blue; }
   </style>
 </head>
 <body>
@@ -198,12 +204,12 @@
       <h2>Drag Notes Below into Correct Boxes</h2>
       <div class="notes-grid">
         <div class="note" draggable="true">Panels have rough patches</div>
-        <div class="note" draggable="true">Some panels on some presses</div>
-        <div class="note" draggable="true">All panels on all presses</div>
+        <div class="note note-red" draggable="true">Some panels on some presses</div>
+        <div class="note note-blue" draggable="true">All panels on all presses</div>
         <div class="note" draggable="true">More than 60 or less than 30 sq. mm.</div>
-        <div class="note" draggable="true">Albatross Drone Panels A, B, C, D, F, G</div>
-        <div class="note" draggable="true">In shallow draw, flat, and straight areas</div>
-        <div class="note" draggable="true">19 May, 8:24 (Press 3)</div>
+        <div class="note note-red" draggable="true">Albatross Drone Panels A, B, C, D, F, G</div>
+        <div class="note note-blue" draggable="true">In shallow draw, flat, and straight areas</div>
+        <div class="note note-red" draggable="true">19 May, 8:24 (Press 3)</div>
         <div class="note" draggable="true">Most panels on most presses</div>
         <div class="note" draggable="true">Rough patches (spots/cracks)</div>
         <div class="note" draggable="true">19 May</div>
@@ -265,6 +271,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   initializeDragAndDrop();
+  makeNotesPanelDraggable();
+  shuffleNotes();
 });
 
 function initializeDragAndDrop() {
@@ -276,6 +284,48 @@ function initializeDragAndDrop() {
   if (notesArea) {
     attachDropEventsToNotesArea(notesArea);
   }
+}
+
+function makeNotesPanelDraggable() {
+  const panel = document.querySelector('.notes-panel');
+  if (!panel) return;
+  let offsetX = 0;
+  let offsetY = 0;
+  let isDown = false;
+
+  panel.addEventListener('mousedown', function(e) {
+    if (e.target === panel || e.target.tagName === 'H2') {
+      isDown = true;
+      offsetX = e.clientX - panel.offsetLeft;
+      offsetY = e.clientY - panel.offsetTop;
+      panel.style.cursor = 'grabbing';
+    }
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    if (isDown) {
+      panel.style.left = (e.clientX - offsetX) + 'px';
+      panel.style.top = (e.clientY - offsetY) + 'px';
+    }
+  });
+
+  document.addEventListener('mouseup', function() {
+    if (isDown) {
+      isDown = false;
+      panel.style.cursor = 'move';
+    }
+  });
+}
+
+function shuffleNotes() {
+  const area = document.querySelector('.notes-grid');
+  if (!area) return;
+  const notes = Array.from(area.children);
+  for (let i = notes.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [notes[i], notes[j]] = [notes[j], notes[i]];
+  }
+  notes.forEach(n => area.appendChild(n));
 }
 
 function attachDragEventsToNotes(notes) {
