@@ -66,6 +66,8 @@
       text-align: center;
       padding: 10px;
     }
+    .is-box { background-color: red; color: white; }
+    .isnot-box { background-color: blue; color: white; }
     .label-cell {
       background-color: #eee;
       padding: 10px;
@@ -95,16 +97,19 @@
       border: 1px solid black;
       color: black;
     }
-    .notes-panel {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      padding: 20px;
-      background: #f9f9f9;
-      border: 2px dashed #ccc;
-      border-radius: 10px;
-      cursor: move;
-    }
+      .notes-panel {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 20px;
+        background: #f9f9f9;
+        border: 2px dashed #ccc;
+        border-radius: 10px;
+        cursor: move;
+        width: 40vw;
+        resize: both;
+        overflow: auto;
+      }
     .notes-grid {
       display: flex;
       flex-wrap: wrap;
@@ -124,8 +129,8 @@
 
       <div class="spec-grid">
         <div></div>
-        <div class="grid-header">IS</div>
-        <div class="grid-header">IS NOT</div>
+        <div class="grid-header is-box">IS</div>
+        <div class="grid-header isnot-box">IS NOT</div>
       </div>
 
     <div class="spec-section">
