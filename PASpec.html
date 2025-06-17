@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KT PA Specification Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 1200px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #E03C31;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .row-label {
+      grid-column: span 2;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+      margin-top: 20px;
+    }
+    .box {
+      min-height: 140px;
+      border: 2px solid #E03C31;
+      background-color: #FEF0EF;
+      padding: 10px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .box h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: #E03C31;
+    }
+    .note {
+      background: white;
+      border: 1px solid #ccc;
+      border-left: 5px solid #E03C31;
+      padding: 6px;
+      font-size: 14px;
+      cursor: grab;
+      user-select: none;
+      border-radius: 3px;
+    }
+    .notes-panel {
+      margin-top: 40px;
+    }
+    .notes-panel h2 {
+      color: #E03C31;
+    }
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Problem Analysis - Specification Test</h1>
+
+    <div class="grid">
+      <div class="row-label">WHAT</div>
+      <div class="box" data-target="pa-what-is">
+        <h4>IS: What specific object(s) has the deviation?</h4>
+      </div>
+      <div class="box" data-target="pa-what-isnot">
+        <h4>IS NOT: What object(s) could have it, but does not?</h4>
+      </div>
+
+      <div class="row-label">WHERE</div>
+      <div class="box" data-target="pa-where-is">
+        <h4>IS: Where is the object when deviation is observed?</h4>
+      </div>
+      <div class="box" data-target="pa-where-isnot">
+        <h4>IS NOT: Where is the object when deviation is not observed?</h4>
+      </div>
+
+      <div class="row-label">WHEN</div>
+      <div class="box" data-target="pa-when-is">
+        <h4>IS: When was the deviation first observed?</h4>
+      </div>
+      <div class="box" data-target="pa-when-isnot">
+        <h4>IS NOT: When could it have been but was not?</h4>
+      </div>
+
+      <div class="row-label">EXTENT</div>
+      <div class="box" data-target="pa-extent-is">
+        <h4>IS: What is the size, number, trend?</h4>
+      </div>
+      <div class="box" data-target="pa-extent-isnot">
+        <h4>IS NOT: What is the contrast in size, number, trend?</h4>
+      </div>
+    </div>
+
+    <div class="notes-panel">
+      <h2>Drag Notes Below into Correct Boxes</h2>
+      <div class="notes-grid">
+        <div class="note" draggable="true">Panels have rough patches</div>
+        <div class="note" draggable="true">Some panels on some presses</div>
+        <div class="note" draggable="true">All panels on all presses</div>
+        <div class="note" draggable="true">More than 60 or less than 30 sq. mm.</div>
+        <div class="note" draggable="true">Albatross Drone Panels A, B, C, D, F, G</div>
+        <div class="note" draggable="true">In shallow draw, flat, and straight areas</div>
+        <div class="note" draggable="true">19 May, 8:24 (Press 3)</div>
+        <div class="note" draggable="true">Most panels on most presses</div>
+        <div class="note" draggable="true">Rough patches (spots/cracks)</div>
+        <div class="note" draggable="true">19 May</div>
+        <div class="note" draggable="true">9:40 at Press 6</div>
+        <div class="note" draggable="true">Between 8:25 and 9:29 at Press 4; 9:31 and after at Press 4</div>
+        <div class="note" draggable="true">Sporadically at Press 3</div>
+        <div class="note" draggable="true">Dodo Panels, Phoenix Panels</div>
+        <div class="note" draggable="true">Sporadically, periodically, or continuously at Presses 4 and 6</div>
+        <div class="note" draggable="true">19 May, between 7:00 and 8:23 (Press 3)</div>
+        <div class="note" draggable="true">Periodically, continuously, or single occurrence at Press 3</div>
+        <div class="note" draggable="true">In the corners, tightest curves</div>
+        <div class="note" draggable="true">Spots/cracks—Between 30 and 60 sq. mm.</div>
+        <div class="note" draggable="true">9:30 at Press 4</div>
+        <div class="note" draggable="true">NMD on trend in size</div>
+        <div class="note" draggable="true">—More or less than 12% rejected on Press 6</div>
+        <div class="note" draggable="true">Albatross Drone Panel E</div>
+        <div class="note" draggable="true">Panel—both sides</div>
+        <div class="note" draggable="true">NMD</div>
+        <div class="note" draggable="true">At Press 5</div>
+        <div class="note" draggable="true">Out-of-dimension specifications</div>
+        <div class="note" draggable="true">On concave side of deep draw curves</div>
+        <div class="note" draggable="true">Ridges, pinholes, pockmarks</div>
+        <div class="note" draggable="true">Stable—6 of 7 panels on 3 of 4 presses</div>
+        <div class="note" draggable="true">Between 6 April and 18 May</div>
+        <div class="note" draggable="true">More or less than 33% of panels rejected over the course of the day</div>
+        <div class="note" draggable="true">Panels</div>
+        <div class="note" draggable="true">Between 8:25 and 9:39 at Press 6; 9:41 and after at Press 6</div>
+        <div class="note" draggable="true">8:25-8:42; 8:44-9:01; 9:03-9:20; 9:22-9:29; 9:31-9:46; 9:48-10:09; 10:11-10:16; 10:18-10:27; after 10:29 at Press 3</div>
+        <div class="note" draggable="true">NMD on trend in number of instances</div>
+        <div class="note" draggable="true">At presses</div>
+        <div class="note" draggable="true">—More or less than 14% rejected on Press 4</div>
+        <div class="note" draggable="true">At Presses 3, 4, 6</div>
+        <div class="note" draggable="true">In deep draw areas, on convex side of curves</div>
+        <div class="note" draggable="true">Increasing, decreasing</div>
+        <div class="note" draggable="true">After 1st stamping</div>
+        <div class="note" draggable="true">—14% rejected on Press 4</div>
+        <div class="note" draggable="true">Rough spots/tiny surface cracks</div>
+        <div class="note" draggable="true">—12% rejected on Press 6</div>
+        <div class="note" draggable="true">During production</div>
+        <div class="note" draggable="true">Before stamping, after 3-4 stampings</div>
+        <div class="note" draggable="true">Panel—one side only</div>
+        <div class="note" draggable="true">At the test facility</div>
+        <div class="note" draggable="true">—33% rejected on Press 3</div>
+        <div class="note" draggable="true">Albatross Panels</div>
+        <div class="note" draggable="true">8:43, 9:02, 9:21, 9:30, 9:47, 10:10, 10:17, 10:28 at Press 3</div>
+        <div class="note" draggable="true">NMD on number of spots/cracks per panel</div>
+        <div class="note" draggable="true">In inventory</div>
+        <div class="note" draggable="true">Before production</div>
+        <div class="note" draggable="true">In the factory</div>
+        <div class="note" draggable="true">Struts, Nose Cones</div>
+        <div class="note" draggable="true">—More or less than 33% rejected on Press 3</div>
+        <div class="note" draggable="true">Up to 33% of panels rejected over the course of the day</div>
+        <div class="note" draggable="true">Single occurrence at Presses 4 and 6</div>
+      </div>
+        <div class="note" draggable="true">DEVIATION</div>
+        <div class="note" draggable="true">IS</div>
+        <div class="note" draggable="true">IS NOT</div>
+        <div class="note" draggable="true">WHAT?</div>
+        <div class="note" draggable="true">WHERE?</div>
+        <div class="note" draggable="true">WHEN?</div>
+        <div class="note" draggable="true">EXTENT?</div>
+        <div class="note" draggable="true">DISTINCTIONS AND CHANGES</div>
+        <div class="note" draggable="true">WHAT DO YOU MEAN BY…?</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const notes = document.querySelectorAll('.note');
+    const boxes = document.querySelectorAll('.box');
+
+    notes.forEach(note => {
+      note.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('text/plain', note.outerHTML);
+        note.classList.add('dragging');
+      });
+
+      note.addEventListener('dragend', e => {
+        note.classList.remove('dragging');
+      });
+    });
+
+    boxes.forEach(box => {
+      box.addEventListener('dragover', e => {
+        e.preventDefault();
+        box.style.backgroundColor = '#fbe5e2';
+      });
+
+      box.addEventListener('dragleave', e => {
+        box.style.backgroundColor = '#FEF0EF';
+      });
+
+      box.addEventListener('drop', e => {
+        e.preventDefault();
+        box.style.backgroundColor = '#FEF0EF';
+
+        const draggedHTML = e.dataTransfer.getData('text/plain');
+        const temp = document.createElement('div');
+        temp.innerHTML = draggedHTML.trim();
+        const newNote = temp.firstChild;
+
+        newNote.setAttribute('draggable', 'true');
+        newNote.addEventListener('dragstart', e => {
+          e.dataTransfer.setData('text/plain', newNote.outerHTML);
+          newNote.classList.add('dragging');
+        });
+        newNote.addEventListener('dragend', e => {
+          newNote.classList.remove('dragging');
+        });
+
+        box.appendChild(newNote);
+      });
+    });
+  </script>
+</body>
+</html>
