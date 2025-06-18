@@ -20,10 +20,9 @@
     }
     .header-row {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
-      margin-bottom: 20px;
-      gap: 40px;
+      margin-bottom: -50px;
     }
     h1 {
       color: #E03C31;
@@ -31,23 +30,25 @@
     }
     .problem-box {
       padding: 10px;
-      border: 2px solid black;
+      border: 1px solid black;
       background: white;
-      min-height: 60px;
-      width: 300px;
+      height: 120px;
+      width: 180px;
       font-family: 'Arial Black', Arial, sans-serif;
+      margin-left: 20px;
+      margin-bottom: 5px;
     }
     .problem-box::before {
       content: "Problem Statement";
       display: block;
       font-family: 'Arial Black', Arial, sans-serif;
       font-weight: bold;
-      margin-bottom: 5px;
+      white-space: pre-line;
     }
     .spec-section {
-      border: 2px solid black;
+      border: 1px solid black;
       padding: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       position: relative;
     }
     .section-title {
@@ -58,7 +59,7 @@
       display: grid;
       grid-template-columns: 300px 1fr 1fr;
       gap: 10px;
-      align-items: start;
+      align-items: end;
     }
     .grid-header {
       font-weight: bold;
@@ -67,11 +68,25 @@
       text-align: center;
       padding: 10px;
     }
-    .is-box { background-color: #C0231B; color: white; }
-    .isnot-box { background-color: #0057b7; color: white; }
+    .is-box { 
+      background-color: 
+      #C0231B; color: white; 
+      margin-left: 12px;
+      margin-bottom: 2px;
+      font-size:20px;
+      padding: 5px;
+    }
+    .isnot-box {
+      background-color: #0057b7;
+      color: white; 
+      margin-right: 12px;
+      margin-bottom: 2px;
+      font-size:20px;
+      padding: 5px;
+    }
     .label-cell {
       background-color: #eee;
-      padding: 10px;
+      padding: 5px;
       border: 1px solid #aaa;
       min-height: 122px;
       display: flex;
@@ -107,9 +122,9 @@
     }
       .notes-panel {
         position: fixed;
-        top: 20px;
+        top: 10px;
         right: 20px;
-        padding: 20px;
+        padding: 10px;
         background: #f9f9f9;
         border: 2px solid #999;
         border-radius: 10px;
@@ -134,13 +149,12 @@
 <body>
   <div class="container">
     <div class="header-row">
-      <div class="problem-box drop-box"></div>
       <h1>Problem Analysis - Specification</h1>
     </div>
         <div></div>
 
       <div class="spec-grid">
-        <div></div>
+        <div class="problem-box drop-box" style="height: 142px; display: flex; justify-content: center; text-align: center;"></div>
         <div class="grid-header is-box">IS</div>
         <div class="grid-header isnot-box">IS NOT</div>
       </div>
