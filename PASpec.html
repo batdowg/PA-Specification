@@ -72,9 +72,12 @@
       background-color: #eee;
       padding: 10px;
       border: 1px solid #aaa;
+      min-height: 122px;
+      display: flex;
+      align-items: center;
     }
     .drop-box {
-      min-height: 80px;
+      min-height: 122px;
       background-color: white;
       border: 2px solid black;
       padding: 5px;
@@ -113,7 +116,9 @@
         width: 25vw;
         resize: both;
         overflow: auto;
-        min-height: calc((100vh - 64px) / 2);
+        min-height: 150px;
+        max-height: calc(100vh - 40px);
+        box-sizing: border-box;
       }
     .notes-grid {
       display: flex;
@@ -127,7 +132,7 @@
 <body>
   <div class="container">
     <div class="header-row">
-      <div class="problem-box"></div>
+      <div class="problem-box drop-box"></div>
       <h1>Problem Analysis - Specification Test</h1>
     </div>
         <div></div>
@@ -319,8 +324,14 @@ function makeNotesPanelDraggable() {
 
   document.addEventListener('mousemove', function(e) {
     if (isDown) {
-      panel.style.left = (e.clientX - offsetX) + 'px';
-      panel.style.top = (e.clientY - offsetY) + 'px';
+      let newLeft = e.clientX - offsetX;
+      let newTop = e.clientY - offsetY;
+      const maxLeft = window.innerWidth - panel.offsetWidth;
+      const maxTop = window.innerHeight - panel.offsetHeight;
+      newLeft = Math.min(Math.max(newLeft, 0), maxLeft);
+      newTop = Math.min(Math.max(newTop, 0), maxTop);
+      panel.style.left = newLeft + 'px';
+      panel.style.top = newTop + 'px';
     }
   });
 
