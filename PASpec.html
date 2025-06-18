@@ -418,6 +418,26 @@ function makeNotesPanelDraggable() {
       panel.style.cursor = 'move';
     }
   });
+
+  // Ensure the panel stays visible when the window is resized
+  window.addEventListener('resize', function() {
+    keepPanelInViewport(panel);
+  });
+
+  // Initial check in case the starting viewport is small
+  keepPanelInViewport(panel);
+}
+
+// Clamp the panel position so it never leaves the viewport
+function keepPanelInViewport(panel) {
+  const maxLeft = window.innerWidth - panel.offsetWidth;
+  const maxTop = window.innerHeight - panel.offsetHeight;
+  let currentLeft = parseInt(panel.style.left, 10) || 0;
+  let currentTop = parseInt(panel.style.top, 10) || 0;
+  currentLeft = Math.min(Math.max(currentLeft, 0), maxLeft);
+  currentTop = Math.min(Math.max(currentTop, 0), maxTop);
+  panel.style.left = currentLeft + 'px';
+  panel.style.top = currentTop + 'px';
 }
 
 function shuffleNotes() {
