@@ -79,6 +79,9 @@
       border: 2px solid black;
       padding: 5px;
       border-radius: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
     }
     .note {
       width: 100px;
@@ -110,8 +113,7 @@
         width: 25vw;
         resize: both;
         overflow: auto;
-        height: calc((100vh - 64px) / 2);
-        max-height: calc((100vh - 64px) / 2);
+        min-height: calc((100vh - 64px) / 2);
       }
     .notes-grid {
       display: flex;
@@ -297,6 +299,10 @@ function initializeDragAndDrop() {
 function makeNotesPanelDraggable() {
   const panel = document.querySelector('.notes-panel');
   if (!panel) return;
+  const rect = panel.getBoundingClientRect();
+  panel.style.left = rect.left + 'px';
+  panel.style.top = rect.top + 'px';
+  panel.style.right = 'auto';
   let offsetX = 0;
   let offsetY = 0;
   let isDown = false;
@@ -304,8 +310,9 @@ function makeNotesPanelDraggable() {
   panel.addEventListener('mousedown', function(e) {
     if (e.target === panel || e.target.tagName === 'H2') {
       isDown = true;
-      offsetX = e.clientX - panel.offsetLeft;
-      offsetY = e.clientY - panel.offsetTop;
+      offsetX = e.clientX - panel.getBoundingClientRect().left;
+      offsetY = e.clientY - panel.getBoundingClientRect().top;
+      panel.style.right = 'auto';
       panel.style.cursor = 'grabbing';
     }
   });
@@ -365,10 +372,6 @@ function attachDropEventsToBoxes(boxes, notesArea) {
       this.classList.remove('highlight');
       const draggingNote = document.querySelector('.dragging');
       if (draggingNote) {
-        if (this.querySelector('.note')) {
-          const existing = this.querySelector('.note');
-          notesArea.appendChild(existing);
-        }
         this.appendChild(draggingNote);
       }
     });
