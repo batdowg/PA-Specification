@@ -100,16 +100,18 @@
       .notes-panel {
         position: fixed;
         top: 20px;
-        left: 20px;
+        right: 20px;
         padding: 20px;
         background: #f9f9f9;
-        border: 2px dashed #ccc;
+        border: 2px solid #999;
         border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         cursor: move;
         width: 25vw;
         resize: both;
         overflow: auto;
-        max-height: calc(100vh - 64px);
+        height: calc((100vh - 64px) / 2);
+        max-height: calc((100vh - 64px) / 2);
       }
     .notes-grid {
       display: flex;
