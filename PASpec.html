@@ -34,11 +34,13 @@
       border: 2px solid black;
       background: white;
       min-height: 60px;
-      width: 500px;
+      width: 300px;
+      font-family: 'Arial Black', Arial, sans-serif;
     }
     .problem-box::before {
       content: "Problem Statement";
       display: block;
+      font-family: 'Arial Black', Arial, sans-serif;
       font-weight: bold;
       margin-bottom: 5px;
     }
@@ -48,7 +50,6 @@
       margin-bottom: 20px;
       position: relative;
     }
-
     .section-title {
       font-weight: bold;
       margin-bottom: 10px;
@@ -94,8 +95,8 @@
       justify-content: center;
       text-align: center;
       padding: 6px;
+      font-family: 'Arial Black', Arial, sans-serif;
       font-size: 13px;
-      font-weight: bold;
       border-radius: 1px;
       cursor: grab;
       user-select: none;
@@ -133,7 +134,7 @@
   <div class="container">
     <div class="header-row">
       <div class="problem-box drop-box"></div>
-      <h1>Problem Analysis - Specification Test</h1>
+      <h1>Problem Analysis - Specification</h1>
     </div>
         <div></div>
 
@@ -218,66 +219,68 @@
     <div class="notes-panel">
       <h2>Drag Notes Below into Correct Boxes</h2>
       <div class="notes-grid">
-        <div class="note" draggable="true">Panels have rough patches</div>
-        <div class="note note-red" draggable="true">Some panels on some presses</div>
-        <div class="note note-blue" draggable="true">All panels on all presses</div>
-        <div class="note" draggable="true">More than 60 or less than 30 sq. mm.</div>
+        <div class="note" draggable="true"><b>Problem Statement:</b> Panels have rough patches</div>
+        <div class="note note-blue" draggable="true">Some panels on some presses</div>
+        <div class="note" draggable="true">All panels on all presses</div>
+        <div class="note note-blue" draggable="true">More than 60 or less than 30 sq. mm.</div>
         <div class="note note-red" draggable="true">Albatross Drone Panels A, B, C, D, F, G</div>
         <div class="note note-blue" draggable="true">In shallow draw, flat, and straight areas</div>
         <div class="note note-red" draggable="true">19 May, 8:24 (Press 3)</div>
-        <div class="note" draggable="true">Most panels on most presses</div>
-        <div class="note" draggable="true">Rough patches (spots/cracks)</div>
-        <div class="note" draggable="true">19 May</div>
-        <div class="note" draggable="true">9:40 at Press 6</div>
-        <div class="note" draggable="true">Between 8:25 and 9:29 at Press 4; 9:31 and after at Press 4</div>
-        <div class="note" draggable="true">Sporadically at Press 3</div>
-        <div class="note" draggable="true">Dodo Panels, Phoenix Panels</div>
-        <div class="note" draggable="true">Sporadically, periodically, or continuously at Presses 4 and 6</div>
-        <div class="note" draggable="true">19 May, between 7:00 and 8:23 (Press 3)</div>
-        <div class="note" draggable="true">Periodically, continuously, or single occurrence at Press 3</div>
-        <div class="note" draggable="true">In the corners, tightest curves</div>
-        <div class="note" draggable="true">Spots/cracks—Between 30 and 60 sq. mm.</div>
-        <div class="note" draggable="true">9:30 at Press 4</div>
-        <div class="note" draggable="true">NMD on trend in size</div>
-        <div class="note" draggable="true">—More or less than 12% rejected on Press 6</div>
-        <div class="note" draggable="true">Albatross Drone Panel E</div>
-        <div class="note" draggable="true">Panel—both sides</div>
-        <div class="note" draggable="true">NMD</div>
-        <div class="note" draggable="true">At Press 5</div>
-        <div class="note" draggable="true">Out-of-dimension specifications</div>
-        <div class="note" draggable="true">On concave side of deep draw curves</div>
-        <div class="note" draggable="true">Ridges, pinholes, pockmarks</div>
-        <div class="note" draggable="true">Stable—6 of 7 panels on 3 of 4 presses</div>
-        <div class="note" draggable="true">Between 6 April and 18 May</div>
-        <div class="note" draggable="true">More or less than 33% of panels rejected over the course of the day</div>
-        <div class="note" draggable="true">Panels</div>
-        <div class="note" draggable="true">Between 8:25 and 9:39 at Press 6; 9:41 and after at Press 6</div>
-        <div class="note" draggable="true">8:25-8:42; 8:44-9:01; 9:03-9:20; 9:22-9:29; 9:31-9:46; 9:48-10:09; 10:11-10:16; 10:18-10:27; after 10:29 at Press 3</div>
-        <div class="note" draggable="true">NMD on trend in number of instances</div>
-        <div class="note" draggable="true">At presses</div>
-        <div class="note" draggable="true">—More or less than 14% rejected on Press 4</div>
-        <div class="note" draggable="true">At Presses 3, 4, 6</div>
-        <div class="note" draggable="true">In deep draw areas, on convex side of curves</div>
-        <div class="note" draggable="true">Increasing, decreasing</div>
-        <div class="note" draggable="true">After 1st stamping</div>
-        <div class="note" draggable="true">—14% rejected on Press 4</div>
-        <div class="note" draggable="true">Rough spots/tiny surface cracks</div>
-        <div class="note" draggable="true">—12% rejected on Press 6</div>
-        <div class="note" draggable="true">During production</div>
-        <div class="note" draggable="true">Before stamping, after 3-4 stampings</div>
-        <div class="note" draggable="true">Panel—one side only</div>
-        <div class="note" draggable="true">At the test facility</div>
-        <div class="note" draggable="true">—33% rejected on Press 3</div>
-        <div class="note" draggable="true">Albatross Panels</div>
-        <div class="note" draggable="true">8:43, 9:02, 9:21, 9:30, 9:47, 10:10, 10:17, 10:28 at Press 3</div>
-        <div class="note" draggable="true">NMD on number of spots/cracks per panel</div>
-        <div class="note" draggable="true">In inventory</div>
-        <div class="note" draggable="true">Before production</div>
-        <div class="note" draggable="true">In the factory</div>
-        <div class="note" draggable="true">Struts, Nose Cones</div>
-        <div class="note" draggable="true">—More or less than 33% rejected on Press 3</div>
-        <div class="note" draggable="true">Up to 33% of panels rejected over the course of the day</div>
-        <div class="note" draggable="true">Single occurrence at Presses 4 and 6</div>
+        <div class="note note-red" draggable="true">Most panels on most presses</div>
+        <div class="note note-red" draggable="true">Rough patches (spots/cracks)</div>
+        <div class="note note-red" draggable="true">19 May</div>
+        <div class="note note-red" draggable="true">9:40 at Press 6</div>
+        <div class="note note-blue" draggable="true">Between 8:25 and 9:29 at Press 4; 9:31 and after at Press 4</div>
+        <div class="note note-red" draggable="true">Sporadically at Press 3</div>
+        <div class="note note-blue" draggable="true">Dodo Panels, Phoenix Panels</div>
+        <div class="note note-blue" draggable="true">Sporadically, periodically, or continuously at Presses 4 and 6</div>
+        <div class="note note-blue" draggable="true">19 May, between 7:00 and 8:23 (Press 3)</div>
+        <div class="note note-blue" draggable="true">Periodically, continuously, or single occurrence at Press 3</div>
+        <div class="note note-red" draggable="true">In the corners, tightest curves</div>
+        <div class="note note-red" draggable="true">Spots/cracks—Between 30 and 60 sq. mm.</div>
+        <div class="note note-red" draggable="true">9:30 at Press 4</div>
+        <div class="note note-red" draggable="true">NMD on trend in size</div>
+        <div class="note note-blue" draggable="true">—More or less than 12% rejected on Press 6</div>
+        <div class="note note-blue" draggable="true">Albatross Drone Panel E</div>
+        <div class="note note-red" draggable="true">Panel—both sides</div>
+        <div class="note note-blue" draggable="true">NMD</div>
+        <div class="note note-blue" draggable="true">At Press 5</div>
+        <div class="note note-blue" draggable="true">Out-of-dimension specifications</div>
+        <div class="note note-blue" draggable="true">On concave side of deep draw curves</div>
+        <div class="note note-blue" draggable="true">NMD</div>
+        <div class="note note-blue" draggable="true">Ridges, pinholes, pockmarks</div>
+        <div class="note note-red" draggable="true">Stable—6 of 7 panels on 3 of 4 presses</div>
+        <div class="note note-blue" draggable="true">Between 6 April and 18 May</div>
+        <div class="note note-blue" draggable="true">More or less than 33% of panels rejected over the course of the day</div>
+        <div class="note note-red" draggable="true">Panels</div>
+        <div class="note note-blue" draggable="true">Between 8:25 and 9:39 at Press 6; 9:41 and after at Press 6</div>
+        <div class="note note-blue" draggable="true" style="font-size:11px;">8:25-8:42; 8:44-9:01; 9:03-9:20; 9:22-9:29; 9:31-9:46; 9:48-10:09; 10:11-10:16; 10:18-10:27; after 10:29 at Press 3</div>
+        <div class="note note-red" draggable="true">NMD on trend in number of instances</div>
+        <div class="note note-red" draggable="true">At presses</div>
+        <div class="note note-blue" draggable="true">NMD</div>
+        <div class="note note-blue" draggable="true">—More or less than 14% rejected on Press 4</div>
+        <div class="note note-red" draggable="true">At Presses 3, 4, 6</div>
+        <div class="note note-red" draggable="true">In deep draw areas, on convex side of curves</div>
+        <div class="note note-blue" draggable="true">Increasing, decreasing</div>
+        <div class="note note-red" draggable="true">After 1st stamping</div>
+        <div class="note note-red" draggable="true">—14% rejected on Press 4</div>
+        <div class="note note-red" draggable="true">Rough spots/tiny surface cracks</div>
+        <div class="note note-red" draggable="true">—12% rejected on Press 6</div>
+        <div class="note note-red" draggable="true">During production</div>
+        <div class="note note-blue" draggable="true">Before stamping, after 3-4 stampings</div>
+        <div class="note note-blue" draggable="true">Panel—one side only</div>
+        <div class="note note-blue" draggable="true">At the test facility</div>
+        <div class="note note-red" draggable="true">—33% rejected on Press 3</div>
+        <div class="note note-red" draggable="true">Albatross Panels</div>
+        <div class="note note-red" draggable="true">8:43, 9:02, 9:21, 9:30, 9:47, 10:10, 10:17, 10:28 at Press 3</div>
+        <div class="note note-red" draggable="true">NMD on number of spots/cracks per panel</div>
+        <div class="note note-blue" draggable="true">In inventory</div>
+        <div class="note note-blue" draggable="true">Before production</div>
+        <div class="note note-red" draggable="true">In the factory</div>
+        <div class="note note-blue" draggable="true">Struts, Nose Cones</div>
+        <div class="note note-blue" draggable="true">—More or less than 33% rejected on Press 3</div>
+        <div class="note note-red" draggable="true">Up to 33% of panels rejected over the course of the day</div>
+        <div class="note note-red" draggable="true">Single occurrence at Presses 4 and 6</div>
       </div>
     </div>
   </div>
